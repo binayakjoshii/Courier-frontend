@@ -4,7 +4,9 @@
 <h3> Deployment Status</h3>
 <ul>
   <li><b>Platform:</b> Vercel</li>
-  <li><b>Production URL:</b> <a href="https://your-vercel-app-url.vercel.app">your-app-url.vercel.app</a></li>
+  <li><b>Production URL:</b> <a href="https://courier-frontend-nine-henna.vercel.app" target="_blank">
+  Open Live Site
+</a></li>
 </ul>
 
 <h3>🛠 Tech Stack</h3>
