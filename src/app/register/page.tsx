@@ -48,29 +48,54 @@ export default function Register() {
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-            <input type="text" required className="w-full p-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500"
-              value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+            <input 
+              type="text" 
+              required 
+              placeholder="John Doe"
+              className="w-full p-3 bg-white text-gray-900 placeholder-gray-400 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              value={formData.name} 
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
+            />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-            <input type="email" required className="w-full p-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500"
-              value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+            <input 
+              type="email" 
+              required 
+              placeholder="name@example.com"
+              className="w-full p-3 bg-white text-gray-900 placeholder-gray-400 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              value={formData.email} 
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
+            />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-            <input type="password" required className="w-full p-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500"
-              value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+            <input 
+              type="password" 
+              required 
+              placeholder="••••••••"
+              className="w-full p-3 bg-white text-gray-900 placeholder-gray-400 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              value={formData.password} 
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })} 
+            />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Account Type</label>
-            <select className="w-full p-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500"
-              value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })}>
+            <select 
+              className="w-full p-3 bg-white text-gray-900 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              value={formData.role} 
+              onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+            >
               <option value="customer">Customer</option>
               <option value="admin">Admin</option>
             </select>
           </div>
           
-          <button type="submit" disabled={loading} className="w-full bg-black text-white p-3 rounded-lg font-bold hover:bg-gray-800 transition">
+          <button 
+            type="submit" 
+            disabled={loading} 
+            className="w-full bg-black text-white p-3 rounded-lg font-bold hover:bg-gray-800 transition active:scale-[0.98] disabled:opacity-70 mt-2"
+          >
             {loading ? "Creating..." : "Sign Up"}
           </button>
         </form>
