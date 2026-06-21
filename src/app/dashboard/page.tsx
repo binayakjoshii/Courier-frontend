@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+
 interface Booking {
   _id: string;
   receiver: { name: string };
@@ -38,7 +40,7 @@ export default function Dashboard() {
 
   const fetchBookings = async (token: string) => {
     try {
-      const res = await fetch("http://localhost:5000/api/bookings/my-bookings", {
+     const res = await fetch(`${API_URL}/api/bookings/my-bookings`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.ok) {
@@ -67,7 +69,7 @@ export default function Dashboard() {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/api/bookings", {
+     const res = await fetch(`${API_URL}/api/bookings`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 // Define the shape of our data
 interface Booking {
@@ -42,7 +43,7 @@ export default function AdminDashboard() {
 
   const fetchAdminBookings = async (token: string) => {
     try {
-      const res = await fetch("http://localhost:5000/api/bookings/admin/all", {
+     const res = await fetch(`${API_URL}/api/bookings/admin/all`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.ok) {
@@ -57,7 +58,7 @@ export default function AdminDashboard() {
   const handleBookingAction = async (bookingId: string, newStatus: string) => {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(`http://localhost:5000/api/bookings/admin/${bookingId}/status`, {
+     const res = await fetch(`${API_URL}/api/bookings/admin/${bookingId}/status`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +82,7 @@ export default function AdminDashboard() {
     const token = localStorage.getItem("token");
 
     try {
-      const res = await fetch(`http://localhost:5000/api/track/admin/${trackingUpdate}`, {
+     const res = await fetch(`${API_URL}/api/track/admin/${trackingUpdate}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

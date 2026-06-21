@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 // Basic Types
 interface TimelineEvent {
@@ -32,7 +33,7 @@ export default function TrackingPage() {
   useEffect(() => {
     const fetchTracking = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/track/${trackingId}`);
+       const res = await fetch(`${API_URL}/api/track/${trackingId}`);
         const data = await res.json();
 
         if (!res.ok) {
